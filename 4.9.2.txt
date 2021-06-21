@@ -1,17 +1,25 @@
-# Step 2a
+Part 4 - Step 2: mapquest_parse-json_1.py
+
+a:
 import urllib.parse
 import requests
-# Step 3a
+
+Step 3:
+
+a, b & c:
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
 orig = "Washington, D.C."
 dest = "Baltimore, Md"
 key = "your_api_key"
-# Step 3b
-url = main_api + urllib.parse.urlencode({"key":key, "from":orig, "to":dest}) 
-# Step 3c
+
+url = main_api + urllib.parse.urlencode({"key":key, "from":orig, "to":dest})
+
 json_data = requests.get(url).json()
 print(json_data)
-# Step 5c
+
+Step 5: mapquest_parse-json_2.py
+
+c:
 print("URL: " + (url))
 
 json_data = requests.get(url).json()
@@ -20,26 +28,32 @@ json_status = json_data["info"]["statuscode"]
 if json_status == 0:
     print("API Status: " + str(json_status) + " = A successful route call.\n")
 
+Step 7: mapquest_parse-json_3.py
 
-# Step 7c
 import urllib.parse
 import requests
 
 main_api = "https://www.mapquestapi.com/directions/v2/route?" 
-key = "fZadaFOY22VIEEemZcBFfxl5vjSXIPpZ"
+key = "your_api_key"
 
 while True:
    orig = input("Starting Location: ")
-   if orig == "quit" or orig == "q":
-       break
    dest = input("Destination: ")
-   if dest == "quit" or dest == "q":
-       break
-
    url = main_api + urllib.parse.urlencode({"key": key, "from":orig, "to":dest})
    print("URL: " + (url))
    json_data = requests.get(url).json()
    json_status = json_data["info"]["statuscode"]
    if json_status == 0:
        print("API Status: " + str(json_status) + " = A successful route call.\n")
+
+Step 9: mapquest_parse-json_4.py
+
+b:
+while True:
+    orig = input("Starting Location: ")
+    if orig == "quit" or orig == "q":
+        break
+    dest = input("Destination: ")
+    if dest == "quit" or dest == "q":
+        break
 
